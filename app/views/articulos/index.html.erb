@@ -1,0 +1,30 @@
+<h1>Articulos</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Contenido</th>
+      <th>Status</th>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articulos.each do |articulo| %>
+      <tr>
+        <td><%= articulo.titulo %></td>
+        <td><%= articulo.contenido %></td>
+        <td><%= articulo.status %></td>
+        <td><%= articulo.url %></td>
+        <td><%= link_to 'Editar', edit_articulo_path(articulo),class: 'btn btn-default' %></td>
+        <td><%= link_to 'Eliminar ', articulo, method: :delete, data: { confirm: 'Estas Seguro?' },class: 'btn btn-default' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Articulo', new_articulo_path, class: 'btn btn-default' %>

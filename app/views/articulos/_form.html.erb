@@ -1,0 +1,38 @@
+<%= form_for(@articulo) do |f| %>
+  <% if @articulo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@articulo.errors.count, "error") %> prohibited this articulo from being saved:</h2>
+
+      <ul>
+      <% @articulo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titulo %><br>
+    <%= f.text_field :titulo, class:'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :contenido %><br>
+    <%= f.text_area :contenido, class:'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.check_box :status %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url, class:'form-control' %>
+  </div>
+    <div class="field">
+      <%= f.label 'Categoria' %><br>
+      <%= f.select :categorium_id, lista_categorias.collect{|c|[c.nombre, c.id]} %>
+    </div>
+    <%= f.hidden_field :user_id, value: current_user.__id__ %>
+  <div class="actions">
+    <%= f.submit class:'btn btn-default' %>
+  </div>
+<% end %>

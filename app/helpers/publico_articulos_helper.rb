@@ -1,0 +1,2 @@
+module PublicoArticulosHelper
+end

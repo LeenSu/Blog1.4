@@ -1,0 +1,30 @@
+<h2 xmlns="http://www.w3.org/1999/html"><%= @articulo.titulo %><small> <%= @articulo.categorium.nombre %> </small> </h2>
+<small><%= @articulo.created_at.to_formatted_s(:long) %> por </small>
+<hr>
+<%= @articulo.contenido %>
+
+<h3>Comentarios</h3>
+<% @comentarios.each do |c| %>
+    <blockquote>
+      <p><%= c.contenido %></p>
+      <footer><%= c.nombre %></footer>
+    </blockquote>
+<% end %>
+
+
+<h4>Comentar</h4>
+
+<%= form_tag create_comentario_path do %>
+<div class="field">
+  <%= label_tag :nombre %><br>
+  <%= text_field_tag :nombre, nil, Class: 'form-control' %>
+</div>
+<div class="field">
+  <%= label_tag :contenido %><br>
+  <%= text_area_tag :contenido, nil, Class: 'form-control' %>
+</div>
+    <%= hidden_field_tag :articulo_id, @articulo.id %>
+<div class="actions">
+  <%= submit_tag "Crear comentario", class: 'btn btn-default' %>
+</div>
+<% end %>

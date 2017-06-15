@@ -1,0 +1,14 @@
+<h1><%= @categoria.nombre %></h1>
+<hr>
+<% @articulos.each do |articulo| %>
+    <h2><%= articulo.titulo %><small>/ <%= articulo.categorium.nombre %> </small> </h2>
+    <small><%= articulo.created_at.to_formatted_s(:long) %>  </small>
+    <hr>
+    <div class="ocultar">
+      <p><%= articulo.contenido %> </p>
+    </div>
+    <%= link_to "Ver mas",articulos_show_path(articulo.url), class: 'btn btn-default' %>
+<% end %>
+
+
+

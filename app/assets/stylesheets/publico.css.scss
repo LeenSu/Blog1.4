@@ -1,0 +1,26 @@
+.barra-top{
+  background-color: darkred !important;
+  margin: 0px;
+
+  a{
+    color: white !important;
+  }
+}
+
+.tituloBlog{
+  background-color: black;
+  margin: 0px;
+  h1{
+    color: orange;
+    font-weight: bold;
+  }
+  h3{
+    color: white;
+  }
+}
+
+.ocultar{
+  height: 100px;
+  overflow: hidden;
+  margin-bottom: 15px ;
+}

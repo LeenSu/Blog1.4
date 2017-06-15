@@ -1,0 +1,22 @@
+<h2>Solicitar Cita</h2>
+
+<%= form_tag create_cita_path do %>
+    <div class="field">
+      <%= label_tag 'nombre' %><br>
+      <%= text_field_tag :nombre,nil ,Class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= label_tag 'fecha de cita' %><br>
+      <%= text_field_tag :fecha,nil ,Class: 'form-control', placeholder: 'dd/mm/aaaa' %>
+    </div>
+
+    <div class="field">
+      <%= label_tag 'Asunto' %><br>
+      <%= text_area_tag :tema,nil , Class: 'form-control' %>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag "Solicitar", class: 'btn btn-default' %>
+    </div>
+<% end %>
